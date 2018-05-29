@@ -7,6 +7,8 @@ class SistaMinutenSpider(scrapy.Spider):
     allowed_domains = ['https://www.folktandvardenstockholm.se']
     start_urls = ['https://www.folktandvardenstockholm.se/']
 
-
     def parse(self, response):
-        yield response.css('div.has-help.cf').extract()
+        yield {
+            'text': response.css('div.has-help.cf::text')
+        }
+
