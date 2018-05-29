@@ -9,6 +9,6 @@ class SistaMinutenSpider(scrapy.Spider):
 
     def parse(self, response):
         yield {
-            'text': response.css('div.has-help.cf::text')
+            'text': response.css('div.has-help.cf').extract()
         }
 
